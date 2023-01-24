@@ -2,6 +2,7 @@ import RestaruntCard from "./RestaruntCard";
 import { restaruntData } from "../config";
 import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
+import Header from "./Header";
 
 function filterData(searchInput, restaurants) {
   // 8 restraunt list = > filtered  rest with "King"
@@ -34,6 +35,13 @@ const Body = () => {
     console.log(json);
   }
 
+  function notValidSearch() {
+    let msg;
+    if (filteredRestarunts.length === 0) {
+      return (msg = "Enter Valid Search");
+    }
+  }
+
   //config driven ui
   return allRestarunts.length === 0 ? (
     <ShimmerUi />
@@ -61,6 +69,7 @@ const Body = () => {
             Search
           </button>
         </div>
+        <p className="p-2 text-danger">{notValidSearch()}</p>
       </div>
       <div className="d-flex flex-wrap justify-content-evenly px-3">
         {filteredRestarunts.map((restarunt) => {

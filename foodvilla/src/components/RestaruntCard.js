@@ -6,7 +6,7 @@ const RestaruntCard = ({
   cloudinaryImageId,
   time,
   avgRating,
-  price,
+  costForTwoString,
 }) => {
   return (
     <div className="card my-5 mx-1" style={{ width: "22rem" }}>
@@ -39,7 +39,7 @@ const RestaruntCard = ({
             </p>
           </div>
           <p className="fw-lighter">{time}</p>
-          <p className="fw-lighter">₹{price} For Two Persons</p>
+          <p className="fw-lighter">{costForTwoString}</p>
         </div>
       </div>
     </div>
