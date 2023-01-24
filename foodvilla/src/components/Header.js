@@ -6,7 +6,9 @@ const Header = () => {
       style={{ backgroundColor: "#e3f2fd" }}
     >
       <div className="container-fluid d-flex">
-        <a className="navbar-brand">FoodVilla</a>
+        <a className="navbar-brand" href="http://localhost:3000/">
+          FoodVilla
+        </a>
         <ul className="navbar-nav d-flex flex-row">
           <li className="mx-2">
             <a>Home</a>
