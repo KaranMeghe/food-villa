@@ -1,8 +1,6 @@
 import RestaruntCard from "./RestaruntCard";
-import { restaruntData } from "../config";
 import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
-import Header from "./Header";
 import axios from "axios";
 
 function filterData(searchInput, restaurants) {
@@ -48,9 +46,9 @@ const Body = () => {
   }
 
   function notValidSearch() {
-    let msg;
     if (filteredRestarunts.length === 0) {
-      return (msg = "Enter Valid Search");
+      let msg = "Enter Valid Search";
+      return msg;
     }
   }
 
