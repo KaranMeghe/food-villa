@@ -3,6 +3,7 @@ import { restaruntData } from "../config";
 import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
 import Header from "./Header";
+import axios from "axios";
 
 function filterData(searchInput, restaurants) {
   // 8 restraunt list = > filtered  rest with "King"
@@ -23,16 +24,27 @@ const Body = () => {
     getRestarunts();
   }, []);
 
+  // async function getRestarunts() {
+  //   const data = await fetch(
+  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.098385&lng=79.068965&page_type=DESKTOP_WEB_LISTING"
+  //   );
+  //   console.log(data);
+  //   const json = await data.json();
+  //   setAllRestarunts(json?.data?.cards[2]?.data?.data?.cards);
+  //   setFilteredRestarunts(json?.data?.cards[2]?.data?.data?.cards);
+
+  //   console.log(json);
+  // }
+
   async function getRestarunts() {
-    const data = await fetch(
+    const data = await axios.get(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.098385&lng=79.068965&page_type=DESKTOP_WEB_LISTING"
     );
-    console.log(data);
-    const json = await data.json();
-    setAllRestarunts(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestarunts(json?.data?.cards[2]?.data?.data?.cards);
 
-    console.log(json);
+    console.log(data);
+
+    setAllRestarunts(data?.data?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestarunts(data?.data?.data?.cards[2]?.data?.data?.cards);
   }
 
   function notValidSearch() {
