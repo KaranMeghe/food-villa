@@ -2,6 +2,7 @@ import RestaruntCard from "./RestaruntCard";
 import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function filterData(searchInput, restaurants) {
   // 8 restraunt list = > filtered  rest with "King"
@@ -83,7 +84,15 @@ const Body = () => {
       </div>
       <div className="d-flex flex-wrap justify-content-evenly px-3">
         {filteredRestarunts.map((restarunt) => {
-          return <RestaruntCard {...restarunt.data} key={restarunt.data.id} />;
+          return (
+            <Link
+              to={"/restarunt/" + restarunt.data.id}
+              key={restarunt.data.id}
+              className="text-decoration-none text-dark"
+            >
+              <RestaruntCard {...restarunt.data} />
+            </Link>
+          );
         })}
       </div>
     </>
