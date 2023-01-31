@@ -48,7 +48,7 @@ const Body = () => {
 
   function notValidSearch() {
     if (filteredRestarunts.length === 0) {
-      let msg = "Enter Valid Search";
+      let msg = `Enter Valid Search: ${searchInput} is not found`;
       return msg;
     }
   }

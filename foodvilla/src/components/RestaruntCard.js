@@ -26,6 +26,14 @@ const RestaruntCard = ({
             className="d-flex justify-content-center align-items-center text-center px-1 my-3"
             style={{ backgroundColor: "#2ecc71", width: "20%", height: "2%" }}
           >
+            <div
+              className="d-flex justify-content-center align-items-center text-center px-1 my-3"
+              style={{
+                backgroundColor: "##e67e22",
+                width: "20%",
+                height: "2%",
+              }}
+            ></div>
             <img
               src={Star}
               style={{ height: "13px", display: "inline-block" }}

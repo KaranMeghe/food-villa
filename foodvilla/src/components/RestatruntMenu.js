@@ -55,12 +55,12 @@ const RestaruntMenu = () => {
           </div>
         </div>
         {/* " "} */}
-        <div>
+        <div className="p-5">
           {console.log(Object.values(restarunt?.menu?.items))}
           {Object.values(restarunt?.menu?.items).map((item) => {
             return (
               <div
-                className="card my-5 mx-auto"
+                className="card my-5 mx-auto p-2"
                 style={{ width: "100%" }}
                 key={item.id}
               >
@@ -71,7 +71,7 @@ const RestaruntMenu = () => {
                       <p className="card-text">{item.description}</p>
                       <p className="card-text">
                         <small className="text-muted">
-                          ₹ {String(item.price)}
+                          ₹ {(item.price / 100).toFixed(2)}
                         </small>
                       </p>
                     </div>
