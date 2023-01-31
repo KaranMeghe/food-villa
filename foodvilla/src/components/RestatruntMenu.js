@@ -8,7 +8,6 @@ import ShimmerUi from "./ShimmerUi";
 const RestaruntMenu = () => {
   // How to Read Dynamic URL params
   const { resId } = useParams();
-  console.log(resId);
 
   const [restarunt, setRestarunt] = useState(null);
 
@@ -21,9 +20,9 @@ const RestaruntMenu = () => {
       "https://www.swiggy.com/dapi/menu/v4/full?lat=21.098385&lng=79.068965&menuId=" +
         resId
     );
-    console.log(dataMenu);
+    // console.log(dataMenu);
     setRestarunt(dataMenu.data.data);
-    console.log(dataMenu.data.data);
+    // console.log(dataMenu.data.data);
   }
 
   if (!restarunt) {
@@ -38,7 +37,7 @@ const RestaruntMenu = () => {
           />
           <div className="text-white mx-5">
             <h3>{restarunt.name}</h3>
-            <p>{restarunt.cuisines}</p>
+            <p>{restarunt.cuisines.join(", ")}</p>
             <p>
               {restarunt.area}, {restarunt.locality}
             </p>
@@ -56,7 +55,7 @@ const RestaruntMenu = () => {
         </div>
         {/* " "} */}
         <div className="p-5">
-          {console.log(Object.values(restarunt?.menu?.items))}
+          {/* {console.log(Object.values(restarunt?.menu?.items))} */}
           {Object.values(restarunt?.menu?.items).map((item) => {
             return (
               <div

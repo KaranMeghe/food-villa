@@ -18,6 +18,7 @@ const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const [allRestarunts, setAllRestarunts] = useState([]);
   const [filteredRestarunts, setFilteredRestarunts] = useState([]);
+  // const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     getRestarunts();
@@ -48,8 +49,8 @@ const Body = () => {
 
   function notValidSearch() {
     if (filteredRestarunts.length === 0) {
-      let msg = `Enter Valid Search: ${searchInput} is not found`;
-      return msg;
+      let errorMsg = `Enter Valid Search: ${searchInput} is not found`;
+      return errorMsg;
     }
   }
 
@@ -59,11 +60,11 @@ const Body = () => {
   ) : (
     <>
       <div className="container-fluid my-4" style={{ width: "50%" }}>
-        <div className="d-flex">
+        <form className="d-flex" onSubmit={(event) => event.preventDefault()}>
           <input
             className="form-control me-2" //localhost:3000/?#()
             type="search"
-            placeholder="Search"
+            placeholder="Search for restarunts"
             aria-label="Search"
             onChange={(event) => setSearchInput(event.target.value)}
             value={searchInput}
@@ -79,10 +80,10 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
+        </form>
         <p className="p-2 text-danger">{notValidSearch()}</p>
       </div>
-      <div className="d-flex flex-wrap justify-content-evenly px-3">
+      <div className="d-flex flex-wrap justify-content-evenly align-items-baswline px-3">
         {filteredRestarunts.map((restarunt) => {
           return (
             <Link

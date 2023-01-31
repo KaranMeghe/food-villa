@@ -20,20 +20,12 @@ const RestaruntCard = ({
       />
       <div className="card-body">
         <h4>{name}</h4>
-        <p className="fw-lighter fs-6 text">{cuisines}</p>
+        <p className="fw-lighter fs-6 text">{cuisines.join(", ")}</p>
         <div className="d-flex justify-content-between align-items-baseline">
           <div
             className="d-flex justify-content-center align-items-center text-center px-1 my-3"
             style={{ backgroundColor: "#2ecc71", width: "20%", height: "2%" }}
           >
-            <div
-              className="d-flex justify-content-center align-items-center text-center px-1 my-3"
-              style={{
-                backgroundColor: "##e67e22",
-                width: "20%",
-                height: "2%",
-              }}
-            ></div>
             <img
               src={Star}
               style={{ height: "13px", display: "inline-block" }}
