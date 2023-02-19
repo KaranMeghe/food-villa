@@ -20,7 +20,7 @@ const RestaruntMenu = () => {
       "https://www.swiggy.com/dapi/menu/v4/full?lat=21.098385&lng=79.068965&menuId=" +
         resId
     );
-    // console.log(dataMenu);
+    console.log(dataMenu);
     setRestarunt(dataMenu.data.data);
     // console.log(dataMenu.data.data);
   }

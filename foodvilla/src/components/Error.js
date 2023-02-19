@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import errorImg from "../image/error.jpg";
+import imageError from "../image/404.webp";
 import { Link } from "react-router-dom";
 
 const Error = () => {
@@ -30,13 +30,17 @@ const Error = () => {
         <p>{`${data}`}</p>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <img src={errorImg} alt="error" style={{ width: "60%" }} />
+        <img src={imageError} alt="error" style={{ width: "40%" }} />
+        <p className="w-20 text-center fw-light">
+          Uh-oh! Looks like the page you are trying to access, doesn't exist.
+          Please start afresh.
+        </p>
         <Link to="/">
           <button
             className="btn fs-5 my-2"
             style={{ backgroundColor: "#e67e22", color: "#fff" }}
           >
-            Go Back
+            Go Home
           </button>{" "}
         </Link>
       </div>
