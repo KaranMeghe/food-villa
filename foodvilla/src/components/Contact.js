@@ -3,15 +3,17 @@ import AdvancedForm from "./AdvancedForm";
 import { useState } from "react";
 
 const Contact = () => {
-  const [view, setView] = useState("basic");
+  const [view, setView] = useState("buisness");
   return (
-    <div>
-      <nav className="d-flex justify-content-center justify-content-around">
-        <h3 onClick={() => setView("basic")}>Basic</h3>
+    <div className="w-full">
+      <nav className="d-flex justify-content-center m-5">
+        <h3 onClick={() => setView("buisness")} className="mx-5">
+          Buisness
+        </h3>
         <h3 onClick={() => setView("advance")}>Advanced</h3>
       </nav>
 
-      {view === "basic" ? <BasicForm /> : <AdvancedForm />}
+      {view === "buisness" ? <BasicForm /> : <AdvancedForm />}
     </div>
   );
 };

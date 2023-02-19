@@ -1,61 +1,75 @@
 import { useFormik } from "formik";
+import { basicSchema } from "../schemas";
 
 function BasicForm() {
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
-  });
+  const { handleChange, errors, touched, handleBlur, values, handleSubmit } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+      },
+      onSubmit: (values, { resetForm }) => {
+        console.log(values);
+        resetForm(values);
+      },
 
-  const disableFormSubmission = (e) => {
-    e.preventDefault();
-    formik.values.firstName = "";
-  };
-
-  console.log(formik);
+      validationSchema: basicSchema,
+    });
 
   return (
     <form
       autoComplete="off"
-      onSubmit={disableFormSubmission}
+      onSubmit={handleSubmit}
       className="d-flex flex-column  align-items-center"
     >
       <div>
         <input
-          className="p-2 border rounded my-2"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
+          className="p-2  border rounded my-2"
+          value={values.firstName}
+          onChange={handleChange}
+          onBlur={handleBlur}
           id="firstName"
           type="text"
+          name="firstName"
           placeholder="First name"
         />
+        {errors.firstName && touched.firstName ? (
+          <p>{errors.firstName}</p>
+        ) : null}
       </div>
 
       <div>
         <input
           className="p-2 border rounded my-2"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
+          value={values.lastName}
+          onChange={handleChange}
+          onBlur={handleBlur}
           id="lastName"
           type="text"
+          name="lastName"
           placeholder="Last Name"
         />
+        {errors.lastName && touched.lastName ? <p>{errors.lastName}</p> : null}
       </div>
 
       <div>
         <input
           className="p-2 border rounded my-2"
-          value={formik.values.email}
-          onChange={formik.handleChange}
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
           id="email"
           type="email"
+          name="email"
           placeholder="Enter your Email"
         />
+        {errors.email && touched.email ? <p>{errors.email}</p> : null}
       </div>
 
-      <button className="btn btn-secondary my-2">Contact Us</button>
+      <button className="btn btn-secondary my-2" type="submit">
+        Contact Us
+      </button>
     </form>
   );
 }
