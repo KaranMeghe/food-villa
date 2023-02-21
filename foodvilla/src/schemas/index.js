@@ -15,3 +15,8 @@ export const basicSchema = yup.object({
 
   email: yup.string().email().required("Please Enter Your email"),
 });
+
+export const buisnessSchema = yup.object({
+  number: yup.number().required("Please Enter Numbers"),
+  email: yup.string().email().required("Please Enter Your email"),
+});
