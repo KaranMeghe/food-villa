@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Body from "./components/Body";
 import RestaruntMenu from "./components/RestatruntMenu";
+import ProfileClass from "./components/ProfileClass";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const el = document.getElementById("root");
@@ -26,6 +27,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile", // relative path, it will assume that take parent path and add profile to it about/profile.
+            element: <ProfileClass />,
+          },
+        ],
       },
       {
         path: "/contact",
