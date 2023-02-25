@@ -1,29 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { IMG_CDN_URL } from "../config";
 import Star from "../image/star.png";
-import axios from "axios";
 import ShimmerUi from "./ShimmerUi";
+import useRestaruntMenu from "../utils/useRestaruntMenu";
 
 const RestaruntMenu = () => {
   // How to Read Dynamic URL params
   const { resId } = useParams();
 
-  const [restarunt, setRestarunt] = useState(null);
-
-  useEffect(() => {
-    getResstaruntInfo();
-  }, []);
-
-  async function getResstaruntInfo() {
-    const dataMenu = await axios.get(
-      "https://www.swiggy.com/dapi/menu/v4/full?lat=21.098385&lng=79.068965&menuId=" +
-        resId
-    );
-    console.log(dataMenu);
-    setRestarunt(dataMenu.data.data);
-    // console.log(dataMenu.data.data);
-  }
+  const restarunt = useRestaruntMenu(resId);
 
   if (!restarunt) {
     return <ShimmerUi />;

@@ -3,15 +3,7 @@ import { useState, useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-function filterData(searchInput, restaurants) {
-  // 8 restraunt list = > filtered  rest with "King"
-  const filterName = restaurants.filter((restaurant) =>
-    restaurant.data.name.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-  return filterName;
-}
+import { filterData } from "../utils/helper";
 
 const Body = () => {
   // searchText and restarunts is a local state variable
