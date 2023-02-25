@@ -7,6 +7,8 @@ import useRestaruntMenu from "../utils/useRestaruntMenu";
 const RestaruntMenu = () => {
   // How to Read Dynamic URL params
   const { resId } = useParams();
+  // const params = useParams();
+  // const {resId} = params
 
   const restarunt = useRestaruntMenu(resId);
 

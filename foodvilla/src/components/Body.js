@@ -1,31 +1,18 @@
 import RestaruntCard from "./RestaruntCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ShimmerUi from "./ShimmerUi";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
+import {
+  useGetFilteredRestarunt,
+  useGetRestarunt,
+} from "../utils/useGetRestarunt";
 
 const Body = () => {
   // searchText and restarunts is a local state variable
   const [searchInput, setSearchInput] = useState("");
-  const [allRestarunts, setAllRestarunts] = useState([]);
-  const [filteredRestarunts, setFilteredRestarunts] = useState([]);
-  // const [errorMsg, setErrorMsg] = useState("");
-
-  useEffect(() => {
-    getRestarunts();
-  }, []);
-
-  async function getRestarunts() {
-    const data = await axios.get(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.098385&lng=79.068965&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    console.log(data);
-
-    setAllRestarunts(data?.data?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestarunts(data?.data?.data?.cards[2]?.data?.data?.cards);
-  }
+  const restarunt = useGetRestarunt();
+  const filteredRestarunts = useGetFilteredRestarunt();
 
   function notValidSearch() {
     if (filteredRestarunts.length === 0) {
@@ -35,7 +22,7 @@ const Body = () => {
   }
 
   //config driven ui
-  return allRestarunts.length === 0 ? (
+  return restarunt.length === 0 ? (
     <ShimmerUi />
   ) : (
     <>
@@ -54,8 +41,8 @@ const Body = () => {
             className="btn btn-outline-success"
             type="submit"
             onClick={() => {
-              const data = filterData(searchInput, allRestarunts);
-              setFilteredRestarunts(data);
+              const data = filterData(searchInput, restarunt);
+              filteredRestarunts(data);
             }} //need to filter the data //update the state - restarunts;
           >
             Search
