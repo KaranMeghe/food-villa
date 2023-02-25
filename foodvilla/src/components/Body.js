@@ -7,6 +7,7 @@ import {
   useGetFilteredRestarunt,
   useGetRestarunt,
 } from "../utils/useGetRestarunt";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   // searchText and restarunts is a local state variable
@@ -19,6 +20,16 @@ const Body = () => {
       let errorMsg = `Enter Valid Search: ${searchInput} is not found`;
       return errorMsg;
     }
+  }
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return (
+      <h3 className="text-center my-5">
+        🔴 You are OffLine, please check your internet Connection
+      </h3>
+    );
   }
 
   //config driven ui
