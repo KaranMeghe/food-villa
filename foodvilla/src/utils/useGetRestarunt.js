@@ -28,5 +28,5 @@ export const useGetFilteredRestarunt = () => {
     console.log(data);
     setFilteredRestarunts(data?.data?.data?.cards[2]?.data?.data?.cards);
   }
-  return filteredRestarunts;
+  return [filteredRestarunts, setFilteredRestarunts]; // Return array instead of variable and in array there will be value and function
 };

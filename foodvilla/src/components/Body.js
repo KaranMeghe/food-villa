@@ -12,7 +12,7 @@ const Body = () => {
   // searchText and restarunts is a local state variable
   const [searchInput, setSearchInput] = useState("");
   const restarunt = useGetRestarunt();
-  const filteredRestarunts = useGetFilteredRestarunt();
+  const [filteredRestarunts, setFilteredRestarunts] = useGetFilteredRestarunt();
 
   function notValidSearch() {
     if (filteredRestarunts.length === 0) {
@@ -42,7 +42,7 @@ const Body = () => {
             type="submit"
             onClick={() => {
               const data = filterData(searchInput, restarunt);
-              filteredRestarunts(data);
+              setFilteredRestarunts(data);
             }} //need to filter the data //update the state - restarunts;
           >
             Search
