@@ -3,7 +3,7 @@ import { FETCH_RESTARUNTS } from "../config";
 import { useEffect, useState } from "react";
 
 export const useGetRestarunt = () => {
-  const [allRestarunts, setAllRestarunts] = useState("");
+  const [allRestarunts, setAllRestarunts] = useState([]);
   useEffect(() => {
     getRestarunts();
   }, []);
@@ -17,7 +17,7 @@ export const useGetRestarunt = () => {
 };
 
 export const useGetFilteredRestarunt = () => {
-  const [filteredRestarunts, setFilteredRestarunts] = useState("");
+  const [filteredRestarunts, setFilteredRestarunts] = useState([]);
 
   useEffect(() => {
     getFilteredRestarunts();

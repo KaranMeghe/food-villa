@@ -62,17 +62,18 @@ const Body = () => {
         <p className="p-2 text-danger">{notValidSearch()}</p>
       </div>
       <div className="d-flex flex-wrap justify-content-evenly align-items-baswline px-3">
-        {filteredRestarunts.map((restarunt) => {
-          return (
-            <Link
-              to={"/restarunt/" + restarunt.data.id}
-              key={restarunt.data.id}
-              className="text-decoration-none text-dark"
-            >
-              <RestaruntCard {...restarunt.data} />
-            </Link>
-          );
-        })}
+        {filteredRestarunts &&
+          filteredRestarunts.map((restarunt) => {
+            return (
+              <Link
+                to={"/restarunt/" + restarunt.data.id}
+                key={restarunt.data.id}
+                className="text-decoration-none text-dark"
+              >
+                <RestaruntCard {...restarunt.data} />
+              </Link>
+            );
+          })}
       </div>
     </>
   );
