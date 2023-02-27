@@ -1,9 +1,10 @@
 import Cart from "../image/shopping-cart.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import useOnline from "../utils/useOnline";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const isOnline = useOnline();
 
   // function toggle() {
   //   return isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true);
@@ -36,6 +37,8 @@ const Header = () => {
               Contact
             </Link>
           </li>
+
+          <li className="mx-2 fs-6">{isOnline ? "🟢" : "🔴"}</li>
           <li className="mx-2 text-light">
             <Link to="/cart">
               {" "}
