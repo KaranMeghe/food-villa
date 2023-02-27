@@ -8,6 +8,7 @@ import {
   useGetRestarunt,
 } from "../utils/useGetRestarunt";
 import useOnline from "../utils/useOnline";
+import ChromeDinoGame from "react-chrome-dino";
 
 const Body = () => {
   // searchText and restarunts is a local state variable
@@ -29,6 +30,7 @@ const Body = () => {
     return (
       <h3 className="text-center my-5">
         🔴 You are OffLine, please check your internet Connection
+        <ChromeDinoGame />
       </h3>
     );
   }
