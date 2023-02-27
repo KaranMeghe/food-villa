@@ -16,7 +16,8 @@ const Body = () => {
   const [filteredRestarunts, setFilteredRestarunts] = useGetFilteredRestarunt();
 
   function notValidSearch() {
-    if (filteredRestarunts.length === 0) {
+    if (searchInput.length && filteredRestarunts.length === 0) {
+      // The function first checks whether the length of the search input is greater than zero (searchInput.length). If it is, it proceeds to the next condition, which checks whether the length of the filtered restaurants array is zero (filteredRestaurants.length === 0). If both of these conditions are true, it creates an error message string that includes the user's search input and returns it.
       let errorMsg = `Enter Valid Search: ${searchInput} is not found`;
       return errorMsg;
     }
