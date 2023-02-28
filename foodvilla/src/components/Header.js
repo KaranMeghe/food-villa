@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <nav
       className="navbar navbar-light sticky-top "
-      style={{ backgroundColor: "#e67e22", color: "#fff" }}
+      style={{ backgroundColor: "#9b59b6", color: "#fff" }}
     >
       <div className="container-fluid d-flex">
         <Link to="/" className="text-decoration-none ">
