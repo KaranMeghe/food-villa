@@ -28,6 +28,12 @@ const Header = () => {
             </Link>
           </li>
 
+          <li className="mx-2">
+            <Link to="/instamart" className="text-decoration-none text-light">
+              InstaMart
+            </Link>
+          </li>
+
           <li className="mx-2 text-light">
             <Link to="/contact" className="text-decoration-none text-light">
               Contact
