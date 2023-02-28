@@ -1,14 +1,10 @@
-import Cart from "../image/shopping-cart.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import useOnline from "../utils/useOnline";
+import useIsLogedIn from "../utils/useLogedIn";
+import { BsCartPlusFill } from "react-icons/bs";
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, toogleIsLoggedIn] = useIsLogedIn(true);
   const isOnline = useOnline();
-
-  // function toggle() {
-  //   return isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true);
-  // }
 
   return (
     <nav
@@ -38,20 +34,22 @@ const Header = () => {
             </Link>
           </li>
 
-          <li className="mx-2 fs-6">{isOnline ? "🟢" : "🔴"}</li>
           <li className="mx-2 text-light">
-            <Link to="/cart">
-              {" "}
-              <img src={Cart} style={{ width: "30px" }} alt="cart"></img>{" "}
+            <Link to="/cart" className="text-decoration-none text-white">
+              <BsCartPlusFill
+                className="
+              fs-4"
+              />
             </Link>
           </li>
 
           <li>
-            {isLoggedIn ? (
-              <button onClick={() => setIsLoggedIn(false)}>Log-In</button>
-            ) : (
-              <button onClick={() => setIsLoggedIn(true)}>Log-Out</button>
-            )}
+            <button
+              onClick={toogleIsLoggedIn}
+              className={isLoggedIn ? "text-success, mx-2" : "text-dark, mx-2"}
+            >
+              {isLoggedIn && isOnline ? "🟢 Log-in" : "🔴 Log-out"}
+            </button>
           </li>
         </ul>
       </div>
