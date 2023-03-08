@@ -4,7 +4,7 @@ const RestaruntCard = ({
   name,
   cuisines,
   cloudinaryImageId,
-  time,
+  slaString,
   avgRating,
   costForTwoString,
 }) => {
@@ -38,7 +38,7 @@ const RestaruntCard = ({
               {avgRating}
             </p>
           </div>
-          <p className="fw-lighter">{time}</p>
+          <p className="fw-lighter">{slaString}</p>
           <p className="fw-lighter">{costForTwoString}</p>
         </div>
       </div>
