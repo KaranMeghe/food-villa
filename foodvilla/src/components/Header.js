@@ -2,9 +2,13 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import useIsLogedIn from "../utils/useLogedIn";
 import { BsCartPlusFill } from "react-icons/bs";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 const Header = () => {
   const [isLoggedIn, toogleIsLoggedIn] = useIsLogedIn(true);
   const isOnline = useOnline();
+  const { user } = useContext(UserContext);
 
   return (
     <nav
@@ -49,12 +53,13 @@ const Header = () => {
             </Link>
           </li>
 
+          <span className="mx-2 text-light">
+            {isLoggedIn && isOnline ? user.name : ""}
+          </span>
+
           <li>
-            <button
-              onClick={toogleIsLoggedIn}
-              className={isLoggedIn ? "text-success, mx-2" : "text-dark, mx-2"}
-            >
-              {isLoggedIn && isOnline ? "🟢 Log-in" : "🔴 Log-out"}
+            <button onClick={toogleIsLoggedIn} className="border-0 mx-2">
+              {isLoggedIn && isOnline ? "🟢 Logged-in" : "🔴 Logged-out"}
             </button>
           </li>
         </ul>

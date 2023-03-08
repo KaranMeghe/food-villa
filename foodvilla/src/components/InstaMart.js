@@ -44,8 +44,6 @@ const InstMart = () => {
 };
 
 const Section = ({ title, discription, isVisible, toggleVisible }) => {
-  // const [isVisible, setIsVisible] = useState(false);
-  // const [buttonValue, setButtonValue] = useState("See More");
   return (
     <div className="card m-3">
       <div className="card-body">

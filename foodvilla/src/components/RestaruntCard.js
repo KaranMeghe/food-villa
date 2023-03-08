@@ -1,4 +1,5 @@
 import Star from "../image/star.png";
+import { BsFillStarFill } from "react-icons/bs";
 
 const RestaruntCard = ({
   name,
@@ -23,17 +24,13 @@ const RestaruntCard = ({
         <p className="fw-lighter fs-6 text">{cuisines.join(", ")}</p>
         <div className="d-flex justify-content-between align-items-baseline">
           <div
-            className="d-flex justify-content-center align-items-center text-center px-1 my-3"
+            className="d-flex justify-content-center align-items-center text-center p-1 my-3"
             style={{ backgroundColor: "#2ecc71", width: "20%", height: "2%" }}
           >
-            <img
-              src={Star}
-              style={{ height: "13px", display: "inline-block" }}
-              alt="star"
-            ></img>
+            <BsFillStarFill className="fs-8 text-light" />
             <p
-              className="my-0 mx-1"
-              style={{ color: "#fff", fontSize: "12px" }}
+              className="my-0 mx-1 "
+              style={{ color: "#fff", fontSize: "14px" }}
             >
               {avgRating}
             </p>
