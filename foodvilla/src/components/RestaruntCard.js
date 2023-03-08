@@ -1,4 +1,3 @@
-import Star from "../image/star.png";
 import { BsFillStarFill } from "react-icons/bs";
 
 const RestaruntCard = ({
@@ -25,7 +24,11 @@ const RestaruntCard = ({
         <div className="d-flex justify-content-between align-items-baseline">
           <div
             className="d-flex justify-content-center align-items-center text-center p-1 my-3"
-            style={{ backgroundColor: "#2ecc71", width: "20%", height: "2%" }}
+            style={
+              avgRating >= 4
+                ? { backgroundColor: "#2ecc71", width: "20%", height: "2%" }
+                : { backgroundColor: "#f0932b", width: "20%", height: "2%" }
+            }
           >
             <BsFillStarFill className="fs-8 text-light" />
             <p

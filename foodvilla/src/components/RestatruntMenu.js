@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../config";
-import Star from "../image/star.png";
 import ShimmerUi from "./ShimmerUi";
 import useRestaruntMenu from "../utils/useRestaruntMenu";
+import { BsFillStarFill } from "react-icons/bs";
 
 const RestaruntMenu = () => {
   // How to Read Dynamic URL params
@@ -30,7 +30,7 @@ const RestaruntMenu = () => {
             </p>
 
             <div className="d-flex justify-content-start align-items-baseline">
-              <img src={Star} style={{ width: "3%", color: "white" }} />{" "}
+              <BsFillStarFill className="fs-8 text-light" />
               <span className="mx-2">{restarunt.avgRatingString} |</span>
               <p className="">23 Mins</p>
               <p className="mx-2"> &nbsp; Delivery time | </p>
