@@ -50,12 +50,9 @@ const Section = ({ title, discription, isVisible, toggleVisible }) => {
     <div className="card m-3">
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        {isVisible ? (
-          <button onClick={toggleVisible}>Hide</button>
-        ) : (
-          <button onClick={toggleVisible}>See More</button>
-        )}
-
+        <button onClick={toggleVisible}>
+          {isVisible ? "Hide" : "See More"}
+        </button>
         {isVisible && <p>{discription}</p>}
       </div>
     </div>
