@@ -9,7 +9,10 @@ const RestaruntCard = ({
   costForTwoString,
 }) => {
   return (
-    <div className="card my-5 mx-1" style={{ width: "22rem" }}>
+    <div
+      className="card my-5 mx-1"
+      style={{ maxWidth: "24rem", height: "81%" }}
+    >
       <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
